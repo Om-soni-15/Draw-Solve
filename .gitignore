@@ -1,1 +1,6 @@
 ./.env
+.env
+server.py
+app1.py
+/templates
+.idea
