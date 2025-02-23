@@ -7,7 +7,7 @@ import { StoreContext } from "../../Contexts/StoreContext";
 
 const CanvasBox = () => {
 
-  const {image, setImage, textPrompt, setTextPrompt} = useContext(StoreContext)
+  const {image, setImage, textPrompt, setTextPrompt, setMarkDownText} = useContext(StoreContext)
 
   
 
@@ -54,7 +54,7 @@ const CanvasBox = () => {
           formData.append("textPrompt", textPrompt);
           
 
-          const response = await fetch(import.meta.env.REACT_APP_BACKEND_URL, {
+          const response = await fetch(REACT_APP_BACKEND_URL, {
             method: "POST",
             body: formData,
           });
@@ -64,6 +64,7 @@ const CanvasBox = () => {
           console.log(data.response);
 
           setImage(null)
+           await setMarkDownText(data.response)          
         } catch (error) {
           console.error("Error uploading image:", error);
         }

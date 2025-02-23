@@ -63,7 +63,7 @@ export default function NavbarTop() {
             </button>
 
             {/* Profile dropdown */}
-            
+
           </div>
         </div>
       </div>
