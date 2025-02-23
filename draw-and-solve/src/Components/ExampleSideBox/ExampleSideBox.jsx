@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { StoreContext } from "../../Contexts/StoreContext";
 
 const MarkdownBox = () => {
-    const [displayText, setDisplayText] = useState("");
 
-    const { markdownText } = useContext(StoreContext)
+
+    const { displayText, setDisplayText } = useContext(StoreContext);
+
+    const { markdownText } = useContext(StoreContext);
 
     useEffect(() => {
         if (!markdownText) return; // Prevent running when markdownText is empty
@@ -17,26 +19,33 @@ const MarkdownBox = () => {
         let index = 0;
 
         const interval = setInterval(() => {
-            if (index < words.length) {
-                setDisplayText((prev) => prev + (index === 0 ? "" : " ") + words[index]);
-                index++;
+            if (index < words.length - 1) {
+                if (words[index] !== 'undefined') {
+                    setDisplayText((prev) => prev + (prev ? " " : "") + words[index]);
+                }
+                index++; // Move to the next word regardless
             } else {
                 clearInterval(interval);
             }
         }, 100);
 
+        // console.log(words);
+
         return () => clearInterval(interval);
     }, [markdownText]); // Re-run when markdownText updates
 
+
     return (
         <motion.div
-            className=" max-w-lg mx-auto px-7 border border-gray-300 rounded-2xl shadow-lg bg-white flex justify-center items-center text-center h-full w-full"
+            className="mx-auto px-7 border border-gray-300 rounded-2xl shadow-lg bg-white text-center h-full w-100"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
 
-            <ReactMarkdown>{displayText}</ReactMarkdown>
+            <div className="my-10">
+                <ReactMarkdown>{displayText}</ReactMarkdown>
+            </div>
 
 
         </motion.div>

@@ -1,24 +1,17 @@
-import { useContext } from 'react'
 import CanvasBox from './Components/CanvasBox/CanvasBox'
 import DescriptionBox from './Components/DescriptionBox/DescriptionBox'
 import NavbarTop from './Components/NavbarTop/NavbarTop'
-import { StoreContext } from './Contexts/StoreContext'
-
 import MarkdownBox from './Components/ExampleSideBox/ExampleSideBox'
-// import './App.css'
-
-
+import Chatbox from './Components/ChatBox/ChatBox'
 
 
 function App() {
 
-
-
   return (
     <div>
-      <NavbarTop></NavbarTop>
+      <NavbarTop />
 
-      <div className="flex  min-h-screen">
+      <div className="flex  min-h-full">
         <div className="flex flex-col w-[506]">
           <CanvasBox />
           <DescriptionBox />
@@ -28,7 +21,7 @@ function App() {
           <MarkdownBox />
         </div>
       </div>
-
+      <Chatbox></Chatbox>
 
     </div>
   )
