@@ -7,7 +7,9 @@ import { StoreContext } from "../../Contexts/StoreContext";
 
 const CanvasBox = () => {
 
-  const {image, setImage, textPrompt, setTextPrompt} = useContext(StoreContext)
+  const { textPrompt, setTextPrompt} = useContext(StoreContext)
+
+    const [image, setImage] = useState(null)
 
   
 
@@ -54,13 +56,12 @@ const CanvasBox = () => {
           formData.append("textPrompt", textPrompt);
           
 
-          const response = await fetch(import.meta.env.REACT_APP_BACKEND_URL, {
+          const response = await fetch("http://172.20.122.25:6269/upload", {
             method: "POST",
             body: formData,
           });
 
           const data = await response.json();
-
           console.log(data.response);
 
           setImage(null)
