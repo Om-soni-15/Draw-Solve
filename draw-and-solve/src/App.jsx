@@ -1,7 +1,10 @@
+import { useContext } from 'react'
 import CanvasBox from './Components/CanvasBox/CanvasBox'
 import DescriptionBox from './Components/DescriptionBox/DescriptionBox'
-import ExampleSideBox from './Components/ExampleSideBox/ExampleSideBox'
 import NavbarTop from './Components/NavbarTop/NavbarTop'
+import { StoreContext } from './Contexts/StoreContext'
+
+import MarkdownBox from './Components/ExampleSideBox/ExampleSideBox'
 // import './App.css'
 
 
@@ -9,8 +12,10 @@ import NavbarTop from './Components/NavbarTop/NavbarTop'
 
 function App() {
 
+
+
   return (
-    <div >
+    <div>
       <NavbarTop></NavbarTop>
 
       <div className="flex  min-h-screen">
@@ -18,7 +23,10 @@ function App() {
           <CanvasBox />
           <DescriptionBox />
         </div>
-        <ExampleSideBox className="" />
+
+        <div className=" /*bg-red-50*/ flex min-w-90 max-h-150 my-17">
+          <MarkdownBox />
+        </div>
       </div>
 
 

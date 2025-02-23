@@ -7,9 +7,13 @@ import { StoreContext } from "../../Contexts/StoreContext";
 
 const CanvasBox = () => {
 
+<<<<<<< HEAD
   const { textPrompt, setTextPrompt} = useContext(StoreContext)
 
     const [image, setImage] = useState(null)
+=======
+  const {image, setImage, textPrompt, setTextPrompt, setMarkDownText} = useContext(StoreContext)
+>>>>>>> f058fb49ec5e58474c3845d0d1de5ca87a5f95eb
 
   
 
@@ -56,7 +60,11 @@ const CanvasBox = () => {
           formData.append("textPrompt", textPrompt);
           
 
+<<<<<<< HEAD
           const response = await fetch("http://172.20.122.25:6269/upload", {
+=======
+          const response = await fetch(REACT_APP_BACKEND_URL, {
+>>>>>>> f058fb49ec5e58474c3845d0d1de5ca87a5f95eb
             method: "POST",
             body: formData,
           });
@@ -65,6 +73,7 @@ const CanvasBox = () => {
           console.log(data.response);
 
           setImage(null)
+           await setMarkDownText(data.response)          
         } catch (error) {
           console.error("Error uploading image:", error);
         }

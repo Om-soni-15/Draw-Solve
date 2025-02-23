@@ -9,7 +9,7 @@ const StoreContextProvider = (props) => {
 
     const [image, setImage] = useState(null);
     const [textPrompt, setTextPrompt] = useState("");
-    
+    const [markdownText, setMarkDownText] = useState("");
     
 
 
@@ -17,7 +17,9 @@ const StoreContextProvider = (props) => {
         image,
         setImage,
         textPrompt,
-        setTextPrompt
+        setTextPrompt,
+        markdownText,
+        setMarkDownText
     }
 
 
