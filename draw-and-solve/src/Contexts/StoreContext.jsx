@@ -1,16 +1,17 @@
 import { createContext, useEffect, useState } from "react";
-import axios from 'axios';
-
 
 export const StoreContext = createContext(null)
-
 
 const StoreContextProvider = (props) => {
 
     const [image, setImage] = useState(null);
     const [textPrompt, setTextPrompt] = useState("");
     const [markdownText, setMarkDownText] = useState("");
-    
+    const [displayText, setDisplayText] = useState("");
+    const [messages, setMessages] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
+
 
 
     const contextValue = {
@@ -19,7 +20,13 @@ const StoreContextProvider = (props) => {
         textPrompt,
         setTextPrompt,
         markdownText,
-        setMarkDownText
+        setMarkDownText,
+        displayText,
+        setDisplayText,
+        messages,
+        setMessages,
+        isOpen,
+        setIsOpen
     }
 
 
