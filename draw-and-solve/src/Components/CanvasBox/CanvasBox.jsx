@@ -50,7 +50,7 @@ const CanvasBox = () => {
           formData.append("textPrompt", textPrompt);
 
 
-          const response = await fetch(REACT_APP_BACKEND_URL, {
+          const response = await fetch("https://draw-solve.onrender.com/upload", {
             method: "POST",
             body: formData,
           });
@@ -95,7 +95,7 @@ const CanvasBox = () => {
     setMessages([]);
 
 
-    await fetch(REACT_APP_BACKEND_CHAT, {
+    await fetch("http://172.20.122.25:5002/chat_clear", {
       method: "POST",
     });
 

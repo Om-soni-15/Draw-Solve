@@ -12,7 +12,7 @@ load_dotenv()
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 dialog_history = []
 
 @app.route('/')

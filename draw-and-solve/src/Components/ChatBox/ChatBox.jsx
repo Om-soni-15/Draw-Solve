@@ -21,7 +21,7 @@ const Chatbox = () => {
         setLoading(true);
 
         try {
-            const response = await fetch(REACT_APP_BACKEND_CHAT, {
+            const response = await fetch("https://draw-solve.onrender.com/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
